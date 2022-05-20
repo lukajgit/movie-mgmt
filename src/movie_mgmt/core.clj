@@ -1,6 +1,11 @@
-(ns movie-mgmt.core)
+(ns movie-mgmt.core
+  (:require [compojure.core :refer :all]
+            [compojure.route :as route]
+            [ring.middleware.defaults :refer [wrap-defaults site-defaults]]))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defroutes app
+           (GET "/" [])
+           (route/not-found "404 Not Found"))
+
+(def -main
+  (wrap-defaults app site-defaults))
