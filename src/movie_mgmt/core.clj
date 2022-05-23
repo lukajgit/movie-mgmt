@@ -4,6 +4,7 @@
             [ring.middleware.defaults :refer [wrap-defaults site-defaults api-defaults]]
             [controller.view-controller :as controller]
             [service.movies :as movies]
+            [service.actors :as actors]
             [ring.util.response :as response]
             [ring.middleware.basic-authentication :refer :all]))
 
@@ -11,26 +12,46 @@
            (GET "/movies" [] (controller/movies))
            (route/resources "/")
 
-           (GET "/api/movies/:id/delete" [id]
-             (do (movies/delete id)
-                 (response/redirect "/movies")))
-           (route/resources "/")
-
            (GET "/movies/create" [] (controller/create-movie))
            (route/resources "/")
 
-           (GET "/" [] (response/redirect "/movies"))
+           (GET "/movies/:id/update" [id] (controller/update-movie id))
+
+           (GET "/api/movies/:id/delete" [id]
+             (do (movies/delete id)
+                 (response/redirect "/movies")))
            (route/resources "/")
 
            (POST "/api/movies/create" [& params]
              (do (movies/create params)
                  (response/redirect "/movies")))
 
-           (GET "/movies/:id/update" [id] (controller/update-movie id))
-
            (POST "/api/movies/:id/update" [& params]
              (do (movies/update (:id params) params)
                  (response/redirect "/movies")))
+
+           (GET "/actors" [] (controller/actors))
+           (route/resources "/")
+
+           (GET "/actors/create" [] (controller/create-actor))
+           (route/resources "/")
+
+           (GET "/actors/:id/update" [id] (controller/update-actor id))
+
+           (GET "/api/actors/:id/delete" [id]
+             (do (actors/delete id)
+                 (response/redirect "/actors")))
+           (route/resources "/")
+
+           (POST "/api/actors/create" [& params]
+             (do (actors/create params)
+                 (response/redirect "/actors")))
+
+           (POST "/api/actors/:id/update" [& params]
+             (do (actors/update (:id params) params)
+                 (response/redirect "/actors")))
+
+           (GET "/" [] (response/redirect "/movies"))
 
            (route/not-found "404 Not Found"))
 

@@ -6,7 +6,7 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Update movie</title>
+    <title>Update actor</title>
 </head>
 
 <body class="d-flex justify-content-between">
@@ -19,22 +19,20 @@
 </aside>
 
 <main class="col-10">
-    <form action="/api/movies/{{movie.id}}/update" method="post" class="form w-50" name="movie">
-        <h3>Update a movie</h3>
+    <form action="/api/actors/{{actor.id}}/update" method="post" class="form w-50" name="actor">
+        <h3>Update an actor</h3>
         <label for="name">Name</label>
-        <input type="text" name="name" placeholder="Insert name" id="name" class="form-control" value="{{movie.name}}">
-        <label for="description">Description</label>
-        <textarea class="form-control" placeholder="Insert description" name="description" id="description">{{movie.description}}</textarea>
+        <input type="text" name="name" placeholder="Insert name" id="name" class="form-control" value="{{actor.name}}">
         <label for="id_country">Country</label>
         <select name="id_country" class="form-control" id="id_country">
             {{#countries}}
             <option value="{{id}}">{{name}}</option>
             {{/countries}}
         </select>
-        <label for="year">Year</label>
-        <input type="number" name="year" class="form-control" id="year" value="{{movie.year}}">
+        <label for="birthday">Birthday</label>
+        <input type="date" name="birthday" class="form-control" id="birthday" value="{{actor.birthday}}">
 
-        <input type="submit" value="Update a movie" class="btn btn-primary mt-4">
+        <input type="submit" value="Update an actor" class="btn btn-primary mt-4">
     </form>
 </main>
 </body>
