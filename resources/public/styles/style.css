@@ -1,0 +1,30 @@
+body {
+    height: 100vh;
+}
+
+main {
+    padding-top: 50px;
+    padding-left: 150px !important;
+    background-color: #e4e5e6;
+}
+
+.logo {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.card-header button {
+    margin-left: auto;
+}
+
+.table-button {
+    font-size: 32px;
+}
+
+.btn-edit {
+    color: #28a745 !important;
+}
+
+.btn-delete {
+    color: #dc3545 !important;
+}

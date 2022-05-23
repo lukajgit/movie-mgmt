@@ -1,0 +1,5 @@
+{:user "root"
+ :password "myrootpass"
+ :subprotocol "mysql"
+ :subname "//localhost:3306/movie_mgmt"
+ :zeroDateTimeBehaviour "convertToNull"}
