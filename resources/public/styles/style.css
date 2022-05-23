@@ -28,3 +28,8 @@ main {
 .btn-delete {
     color: #dc3545 !important;
 }
+
+label {
+    margin-bottom: 0;
+    margin-top: 5px;
+}

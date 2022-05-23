@@ -8,6 +8,7 @@
                  [ring-server "0.5.0"]
                  [compojure "1.6.3"]
                  [ring/ring-defaults "0.3.3"]
+                 [ring-basic-authentication "1.1.1"]
                  [de.ubercode.clostache/clostache "1.4.0"]
                  [org.clojure/java.jdbc "0.7.12"]
                  [mysql/mysql-connector-java "8.0.21"]]

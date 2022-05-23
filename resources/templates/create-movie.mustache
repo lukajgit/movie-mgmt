@@ -1,0 +1,41 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Create movie</title>
+</head>
+
+<body class="d-flex justify-content-between">
+<aside class="col-2 d-flex flex-column flex-shrink-0 p-3 text-white bg-dark">
+    <section class="logo">
+        <h1>Movie management</h1>
+    </section>
+    <section>Movies</section>
+    <section>Actors</section>
+</aside>
+
+<main class="col-10">
+    <form action="/api/movies/create" method="post" class="form w-50" name="movie">
+        <h3>Create a movie</h3>
+        <label for="name">Name</label>
+        <input type="text" name="name" placeholder="Insert name" id="name" class="form-control">
+        <label for="description">Description</label>
+        <textarea class="form-control" placeholder="Insert description" name="description" id="description"></textarea>
+        <label for="id_country">Country</label>
+        <select name="id_country" class="form-control" id="id_country">
+            {{#countries}}
+            <option value="{{id}}">{{name}}</option>
+            {{/countries}}
+        </select>
+        <label for="year">Year</label>
+        <input type="number" name="year" class="form-control" id="year">
+
+        <input type="submit" value="Create a movie" class="btn btn-primary mt-4">
+    </form>
+</main>
+</body>
+</html>

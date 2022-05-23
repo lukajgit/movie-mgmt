@@ -25,7 +25,7 @@
                 Movies
             </div>
 
-            <button class="btn btn-primary">Add movie</button>
+            <a type="button" class="btn btn-primary" href="/movies/create">Add movie</a>
         </div>
         <div class="card-body">
             <table class="table table-striped table-bordered">
@@ -47,7 +47,7 @@
                     <td>{{year}}</td>
                     <td>{{description}}</td>
                     <td>
-                        <a type="button" class="table-button btn-edit">
+                        <a type="button" class="table-button btn-edit" href="/movies/{{id}}/update">
                             <i class="fa fa-pencil"></i>
                         </a>
                     </td>

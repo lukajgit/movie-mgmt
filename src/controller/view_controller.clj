@@ -12,5 +12,11 @@
   (parser/render (load-template file) data))
 
 (defn movies []
-  (render-template "movies" {:movies (movies/get-all)
-                             :countries (countries/get-all)}))
+  (render-template "movies" {:movies (movies/get-all)}))
+
+(defn create-movie []
+  (render-template "create-movie" {:countries (countries/get-all)}))
+
+(defn update-movie [id]
+  (render-template "update-movie" {:movie (movies/get id)
+                                   :countries (countries/get-all)}))
