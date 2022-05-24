@@ -11,9 +11,9 @@ You first have to set up MySql database server and install Leiningen.
 In configuration/db.edn and configuration/init-db.edn you can change MySql connection parameters to match the ones on your machine.
 In project.clj you can change the port on which the application is running. For running the application, run this command from terminal in your project location
 
-````
+```
 $ lein ring server
-````
+```
 
 ##Examples
 You can search, create, update and delete Movies, Actors and Roles.
