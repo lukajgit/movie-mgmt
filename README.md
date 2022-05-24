@@ -1,10 +1,22 @@
-# movie-mgmt
+# Movie management application
 
-A Clojure library designed to ... well, that part is up to you.
+Movie management application in Clojure for educational purposes.
+
+##Requirements
+
+You first have to set up MySql database server and install Leiningen.
 
 ## Usage
 
-FIXME
+In configuration/db.edn and configuration/init-db.edn you can change MySql connection parameters to match the ones on your machine.
+In project.clj you can change the port on which the application is running. For running the application, run this command from terminal in your project location
+
+````
+$ lein ring server
+````
+
+##Examples
+You can search, create, update and delete Movies, Actors and Roles.
 
 ## License
 

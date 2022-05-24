@@ -1,5 +1,5 @@
 body {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 main {
@@ -32,4 +32,9 @@ main {
 label {
     margin-bottom: 0;
     margin-top: 5px;
+}
+
+aside a {
+    color: #fff;
+    font-size: 24px;
 }

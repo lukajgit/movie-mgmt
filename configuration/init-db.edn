@@ -1,0 +1,6 @@
+{:database-name "movie_mgmt"
+ :user-name "root"
+ :password "myrootpass"
+ :adapter "mysql"
+ :server-name "localhost"
+ :init-file-name "init.sql"}

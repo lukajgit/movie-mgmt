@@ -7,7 +7,29 @@
             [service.actors :as actors]
             [service.roles :as roles]
             [ring.util.response :as response]
-            [ring.middleware.basic-authentication :refer :all]))
+            [ring.middleware.basic-authentication :refer :all]
+            [clojure.java.jdbc :as jdbc]
+            [clojure.edn :as edn]))
+
+(def db (edn/read-string (slurp "configuration/init-db.edn")))
+
+(defn create-db-connection []
+  (jdbc/db-do-commands
+    {:connection-uri (format "jdbc:%s://%s/%s?user=%s&password=%s"
+                             (db :adapter) (db :server-name)
+                             (db :database-name) (db :user-name)
+                             (db :password))}
+    (read-string (slurp (format "src/scripts/%s"
+                                (db :init-file-name))))))
+
+
+(defn init []
+  (jdbc/db-do-commands {:connection-uri (format "jdbc:%s://%s?user=%s&password=%s"
+                                             (db :adapter) (db :server-name)
+                                             (db :user-name) (db :password))}
+                    false
+                    (format "CREATE DATABASE IF NOT EXISTS %s", (db :database-name)))
+  (create-db-connection))
 
 (defroutes app
            (GET "/movies" [] (controller/movies))

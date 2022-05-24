@@ -14,5 +14,6 @@
                  [mysql/mysql-connector-java "8.0.21"]]
   :plugins [[lein-ring "0.12.6"]]
   :ring {:handler movie-mgmt.core/-main
+         :init movie-mgmt.core/init
          :port 8080}
   :repl-options {:init-ns movie-mgmt.core})
