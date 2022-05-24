@@ -6,7 +6,7 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Create movie</title>
+    <title>Create role</title>
 </head>
 
 <body class="d-flex justify-content-between">
@@ -26,22 +26,23 @@
 </aside>
 
 <main class="col-10">
-    <form action="/api/movies/create" method="post" class="form w-50" name="movie">
-        <h3>Create a movie</h3>
-        <label for="name">Name</label>
-        <input type="text" name="name" placeholder="Insert name" id="name" class="form-control">
-        <label for="description">Description</label>
-        <textarea class="form-control" placeholder="Insert description" name="description" id="description"></textarea>
-        <label for="id_country">Country</label>
-        <select name="id_country" class="form-control" id="id_country">
-            {{#countries}}
+    <form action="/api/roles/create" method="post" class="form w-50" name="role">
+        <h3>Create a role</h3>
+        <label for="id_actor">Actor</label>
+        <select name="id_actor" class="form-control" id="id_actor">
+            {{#actors}}
             <option value="{{id}}">{{name}}</option>
-            {{/countries}}
+            {{/actors}}
         </select>
-        <label for="year">Year</label>
-        <input type="number" name="year" class="form-control" id="year">
 
-        <input type="submit" value="Create a movie" class="btn btn-primary mt-4">
+        <label for="id_movie">Movie</label>
+        <select name="id_movie" class="form-control" id="id_movie">
+            {{#movies}}
+            <option value="{{id}}">{{name}}</option>
+            {{/movies}}
+        </select>
+
+        <input type="submit" value="Create a role" class="btn btn-primary mt-4">
     </form>
 </main>
 </body>

@@ -3,7 +3,8 @@
             [clojure.java.io :as io]
             [service.movies :as movies]
             [service.country :as countries]
-            [service.actors :as actors]))
+            [service.actors :as actors]
+            [service.roles :as roles]))
 
 (defn load-template [template-name]
   (slurp (io/resource
@@ -31,3 +32,10 @@
 (defn update-actor [id]
   (render-template "update-actor" {:actor (actors/get id)
                                    :countries (countries/get-all)}))
+
+(defn roles []
+  (render-template "roles" {:roles (roles/get-all)}))
+
+(defn create-role []
+  (render-template "create-role" {:actors (actors/get-all)
+                                  :movies (movies/get-all)}))

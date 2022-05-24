@@ -5,6 +5,7 @@
             [controller.view-controller :as controller]
             [service.movies :as movies]
             [service.actors :as actors]
+            [service.roles :as roles]
             [ring.util.response :as response]
             [ring.middleware.basic-authentication :refer :all]))
 
@@ -50,6 +51,16 @@
            (POST "/api/actors/:id/update" [& params]
              (do (actors/update (:id params) params)
                  (response/redirect "/actors")))
+
+           (GET "/roles" [] (controller/roles))
+           (route/resources "/")
+
+           (GET "/roles/create" [] (controller/create-role))
+           (route/resources "/")
+
+           (POST "/api/roles/create" [& params]
+             (do (roles/create params)
+                 (response/redirect "/roles")))
 
            (GET "/" [] (response/redirect "/movies"))
 

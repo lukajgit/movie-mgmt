@@ -1,7 +1,8 @@
 (ns service.movies
   (:refer-clojure :exclude [seqable? get update])
   (:require [clojure.java.jdbc :as jdbc]
-            [clojure.edn :as edn]))
+            [clojure.edn :as edn]
+            [service.roles :as roles]))
 
 (def db (edn/read-string (slurp "configuration/db.edn")))
 
@@ -16,7 +17,8 @@
                           WHERE id = ?" id])))
 
 (defn delete [id]
-  (jdbc/delete! db :movie ["id = ?" id]))
+  (do (roles/delete-by-movie id)
+      (jdbc/delete! db :movie ["id = ?" id])))
 
 (defn create [parameters]
   (jdbc/insert! db :movie parameters))
